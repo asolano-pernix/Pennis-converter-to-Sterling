@@ -19,6 +19,7 @@ function convertService() {
 
     return service;
 
+
     function calculate(pennis) {
         pennis = checkInput(pennis);
         if (pennis>=100 && pennis <200){
@@ -52,7 +53,6 @@ function convertService() {
             pos6= Math.floor(pennis/1);
         }
 
-        return convertResult();
 
 
     }
@@ -76,10 +76,12 @@ function convertService() {
             result = result + pos5 + "x"+ "2p"+ ",";
         }
         if (pos6>0) {
-            result = result + pos6 + "x"+ "1p" ;
+            result = result + pos6 + "x"+ "1p" + ",";
         }
 
-        return result;
+        pos1 =0 ,pos2=0,pos3=0,pos4=0,pos5=0,pos6 = 0;
+
+        return result.substring(0,result.length-1);
 
 
     }
@@ -142,9 +144,9 @@ function convertService() {
     function deleteZeros (input){
         var i=0;
         var change = false;
-        for (i;i<input.length && change==false ;i++){
-            if (input[i]!=0){
-                change=true;
+        for (i;i<input.length && change==false ;i++) {
+            if (input[i] != 0) {
+                change = true;
             }
         }
         return checkInput(input.substring(i-1,input.length));

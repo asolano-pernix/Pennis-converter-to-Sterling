@@ -1,7 +1,9 @@
 <div>
     <h1>Ingresé la cantidad</h1>
-    <input > </input>
-    <button>Enter</button>
+    <input ng-model="vm.cantidad" > </input>
+    <button ng-click="vm.calculateAmount()">Enter</button>
 </div>
 
-<h2>Denominaciones necesarias</h2>
+<label>Denominaciones necesarias:</label>
+
+<span>{{vm.resultado}}</span>

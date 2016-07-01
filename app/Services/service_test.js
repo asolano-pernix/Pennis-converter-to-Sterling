@@ -7,7 +7,9 @@ describe('Convert service testing', function() {
     describe('Service function', function(){
 
         it('Test calculate function.Show the value of the pennis introduce', inject(function(convertService) {
-            console.log(convertService.calculate('123'));
+            convertService.calculate('123p');
+            expect(convertService.convertResult()).toBe('1x£1,1x20p,1x2p,1x1p');
+
         }));
 
         it('Test checkInput function.Show the transformation of the input that the user',inject(function (convertService) {
@@ -24,6 +26,12 @@ describe('Convert service testing', function() {
             expect(convertService.checkInput('001.41p')).toBe(141);
             expect(convertService.checkInput('4.235p')).toBe(424);
             expect(convertService.checkInput('£1.257422457p')).toBe(126);
+        }));
+
+        it('Test de function deleteZeros',inject(function (convertService) {
+            expect(convertService.deleteZeros('0000000100')).toBe(100);
+            expect(convertService.deleteZeros('00000000000000000000000002')).toBe(2);
+
         }));
 
 
